@@ -27,6 +27,12 @@ public class ResenaService {
     @Value("${api.key.usuarios}")
     private String usuariosApiKey;
 
+    public ResenaService(ResenaRepository resenaRepo, RestTemplate restTemplate) {
+        this.resenaRepo = resenaRepo;
+        this.restTemplate = restTemplate;
+    }
+
+
     public List<Resena> listar() {
         return resenaRepo.findAll();
     }

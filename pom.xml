@@ -3,22 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
+
   <modelVersion>4.0.0</modelVersion>
-  
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.0</version>
+    <version>3.2.5</version> <!-- Cambié esta versión -->
     <relativePath/>
   </parent>
+
   <groupId>com.ecomarket.resenas.duoc</groupId>
-	<artifactId>resenas</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Resenas</name>
-	<description>Microservicio para gestionar el resenas.</description>
- 
-  
+  <artifactId>resenas</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Resenas</name>
+  <description>Microservicio para gestionar el resenas.</description>
+
   <properties>
     <java.version>21</java.version>
     <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
@@ -26,31 +26,31 @@
     <oracle.jdbc.version>21.9.0.0</oracle.jdbc.version>
     <oracle.security.version>19.8.0.0</oracle.security.version>
   </properties>
-  
+
   <dependencies>
     <!-- Spring Boot Starters -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
-    
+
     <!-- Oracle JDBC Driver -->
     <dependency>
       <groupId>com.oracle.database.jdbc</groupId>
       <artifactId>ojdbc11</artifactId>
       <scope>runtime</scope>
     </dependency>
-    
+
     <!-- Oracle Wallet / Security -->
     <dependency>
       <groupId>com.oracle.database.security</groupId>
@@ -66,14 +66,14 @@
       <artifactId>osdt_cert</artifactId>
       <version>${oracle.security.version}</version>
     </dependency>
-    
+
     <!-- Lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
-    
+
     <!-- Spring Boot Devtools -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -82,12 +82,13 @@
       <optional>true</optional>
     </dependency>
 
+    <!-- Swagger OpenAPI -->
     <dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-hateoas</artifactId>
-</dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>2.6.0</version>
+    </dependency>
 
-    
     <!-- Testing -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -99,14 +100,21 @@
       <artifactId>spring-security-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- Spring HATEOAS -->
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-hateoas</artifactId>
+</dependency>
+
   </dependencies>
-  
+
   <build>
     <plugins>
       <!-- Compiler Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
         <configuration>
           <annotationProcessorPaths>
             <path>
@@ -118,7 +126,7 @@
           <release>${java.version}</release>
         </configuration>
       </plugin>
-      
+
       <!-- Spring Boot Maven Plugin -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -134,5 +142,5 @@
       </plugin>
     </plugins>
   </build>
-  <!-- test -->
+
 </project>
